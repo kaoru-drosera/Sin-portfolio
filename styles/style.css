@@ -175,7 +175,6 @@ a{
   display: -ms-flex;
   display: flex;
   justify-content:space-between;
-
 }
 .fmenuRight li{
   margin-left: 2%;
@@ -184,6 +183,11 @@ a{
 .fmenuRight a{
   padding: 22px 0;
   display: block;
+}
+.fmenuRight a:hover{
+  background-color: #fff;
+  color: #13043E;
+  transition: .5s;
 }
 .fRburg{
   display: none;
@@ -494,28 +498,31 @@ a{
   max-width: 400px;
   margin: auto;
 }
-#mes,#subm{
+.C_Form textarea,
+.C_Form input,
+.C_Form button{
   width: 100%;
   float: left;
-}
-textarea[name="message"],
-input[type="submit"]{
   border: 1px solid #fff;
-  background-color: rgba(255, 255, 255, 0.4);
   border-radius: 8px;
-}
-textarea[name="message"]:focus,
-input[type="submit"]:focus{
-  outline: 0;
-}
-textarea[name="message"]{
   background-color: rgba(255, 255, 255, 0.4);
-  font-size: 24px;
+  font-size: 20px;
   color: #000;
   padding: 10px 18px;
+  margin: 20px 0 0;
   font-family: Georgia,游明朝,"Yu Mincho",YuMincho,"Hiragino Mincho ProN",HGS明朝E,メイリオ,Meiryo,serif;
+
 }
-input[type="submit"]{
+.C_Form textarea:focus,
+.C_Form input:focus{
+  outline: 0;
+}
+.C_Form textarea::placeholder,
+.C_Form input::placeholder{
+  color: #fff;
+}
+.C_Form input[type="submit"],
+.C_Form button[type="reset"]{
   padding: 10px 0;
   margin: 20px 0 0;
   font-size: 22px;
@@ -525,7 +532,12 @@ input[type="submit"]{
   transition: .5s;
   font-family: Georgia,游明朝,"Yu Mincho",YuMincho,"Hiragino Mincho ProN",HGS明朝E,メイリオ,Meiryo,serif;
 }
-input[type="submit"]:hover{
+.C_Form button[type="reset"]{
+  background-color: rgba(128, 87, 78, 0.4);
+  transition: .5s;
+}
+.C_Form input[type="submit"]:hover,
+.C_Form button[type="reset"]:hover{
   background-color: rgba(255, 255, 255, 1);
   color: rgba(78, 102, 128, 1);
 }
@@ -540,6 +552,10 @@ input[type="submit"]:hover{
 }
 .copyright .container{
   padding: 10px 40px;
+}
+.error{
+  color: #f00;
+  text-align: left;
 }
 
 /* コピーライトここまで */

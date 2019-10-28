@@ -1,0 +1,232 @@
+/* 全体設定 */
+html{
+  position: relative;
+}
+html,body{
+  height: 100%;
+}
+*,*::after,*::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box ;
+}
+body{
+  font-family: Georgia,"游明朝","Yu Mincho",YuMincho,"Hiragino Mincho ProN",HGS明朝E,メイリオ,Meiryo,serif;
+  color: #707070;
+}
+li{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+/* 全体設定ここまで */
+
+/* 基本的な設定 */
+.pc{
+  display: block;
+}
+.ssp{
+  display: none;
+}
+.sp{
+  display: none;
+}
+.brsp{
+  display: none;
+}
+.container{
+  margin: 0 auto;
+  padding: 75px 40px;
+  max-width: 900px;
+  text-align: center;
+  height: 100%;
+
+
+  /*　↑ containerには、
+  margin横のautoと
+  text-alignのcenterだけは
+  忘れてはならない。 */
+
+  /* min-width: 800px; */
+  /* ↑containerにmin-witdhは
+  設定しない方がいいかも。
+  「containerがbody要素から
+  はみ出てしまう」という
+  バグの原因になってしまった。 */
+
+}
+.clearfix::after{
+  content: "";
+  clear: both;
+  display: block;
+  /* ↑clearfixは、floatを設定した
+  タグにかけてしまいがちだが誤りだ。
+  clearfixは設定した要素の
+  親タグにかけるのだ！ */
+}
+.h2wrap h2,
+.topttl{
+  font-size: 50px;
+}
+.h2wrap p,
+.topSubTtl{
+  font-size: 20px;
+}
+/* 基本的な設定ここまで */
+
+/* jQuery動作設定 */
+
+  /* 読み込み時すぐにJQ発動 */
+  /* JF Q2 */
+  .JF{
+    opacity: 0;
+    transition: .8s;
+    transform: translate(0,2vh);
+  }
+  .JF.fire{
+    opacity: 1;
+    transform: none;
+  }
+
+  /* 読み込み時すぐにJQ発動ここまで */
+
+  /* 下からふわっと登場 */
+  /* JQ Q2 */
+  .Q2{
+    opacity: 0;
+    transition: .5s;
+    transform: translate(0,2vh);
+  }
+  .Q2.fire{
+    opacity: 1;
+    transform: none;
+  }
+  /* 下からふわっと登場ここまで */
+
+  /* 遅れて連続登場 */
+  /* JQ QD */
+  .QD{
+    opacity: 0;
+    transition: 1s;
+    transform: translate(0,2vh);
+  }
+  .QD.fire{
+    opacity: 1;
+    transform: none;
+  }
+  /* 遅れて連続登場ここまで */
+
+  /* コピーライト用 */
+  /* JQ Q1 */
+  .QE{
+    opacity: 0;
+    transition: .5s;
+  }
+  .QE.fire{
+    opacity: 1;
+  }
+
+  /* コピーライト用ここまで */
+
+
+/* jQuery動作設定ここまで */
+
+
+/* フォーム */
+.post{
+  color: #fff;
+  font-size: 18px;
+  padding: 10px 18px;
+  text-align: left;
+}
+.contactForm{
+  background: url("../images/2766.jpg") no-repeat center;
+  background-size: auto;
+  height: 100%;
+  min-height: 500px;
+}
+.contactForm .h2wrap{
+  color: #fff;
+}
+.C_Form{
+  background-color: #13043E;
+  padding: 30px 0 0;
+  max-width: 400px;
+  margin: 30px auto 0;
+  height: 100%;
+}
+.C_Form textarea,
+.C_Form input,
+.C_Form button{
+  width: 100%;
+  float: left;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.4);
+  font-size: 20px;
+  color: #000;
+  padding: 10px 18px;
+  margin: 20px 0 0;
+  font-family: Georgia,"游明朝","Yu Mincho",YuMincho,"Hiragino Mincho ProN",HGS明朝E,メイリオ,Meiryo,serif;
+
+}
+.C_Form textarea:focus,
+.C_Form input:focus{
+  outline: 0;
+}
+.C_Form textarea::placeholder,
+.C_Form input::placeholder{
+  color: #fff;
+}
+.C_Form input[type="submit"],
+.C_Form button[type="reset"]{
+  padding: 10px 0;
+  margin: 20px 0 0;
+  font-size: 22px;
+  background-color: rgba(78, 102, 128, 0.4);
+  color: #fff;
+  cursor: pointer;
+  transition: .5s;
+  font-family: Georgia,"游明朝","Yu Mincho",YuMincho,"Hiragino Mincho ProN",HGS明朝E,メイリオ,Meiryo,serif;
+}
+.C_Form button[type="reset"]{
+  background-color: rgba(128, 87, 78, 0.4);
+  transition: .5s;
+}
+.C_Form input[type="submit"]:hover,
+.C_Form button[type="reset"]:hover{
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(78, 102, 128, 1);
+}
+
+/* フォームここまで */
+
+/* コピーライト */
+
+.copyright{
+  background-color: #363636;
+  color: #fff;
+}
+.copyright .container{
+  padding: 10px 40px;
+}
+
+/* コピーライトここまで */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;

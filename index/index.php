@@ -1,14 +1,37 @@
+<?php
+  ini_set('display_errors',1);
+  error_reporting(E_ALL);
+  session_start();
+  require('../dbConnect.php');
+  if(!empty($_POST)){
+    // エラー項目
+    if($_POST['name'] == ''){
+      $error['name'] = 'blank';
+    }
+    if($_POST['mail'] == ''){
+      $error['mail'] = 'blank';
+    }
+    if($_POST['message'] == ''){
+      $error['message'] = 'blank';
+    }
+    if(!empty($error)){
+      $_SESSION['join'] = $_POST;
+      header('location:check.php');
+      exit();
+    }
+  }
+ ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" type="text/css" href="styles/style.css">
-  <link rel="stylesheet" type="text/css" href="styles/style@media.css">
-  <link rel="stylesheet" type="text/css" href="styles/reset.css">
-  <link rel="stylesheet" type="text/css" href="styles/swiper.css">
+  <link rel="stylesheet" type="text/css" href="../styles/style.css">
+  <link rel="stylesheet" type="text/css" href="../styles/style@media.css">
+  <link rel="stylesheet" type="text/css" href="../styles/reset.css">
+  <link rel="stylesheet" type="text/css" href="../styles/swiper.css">
   <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-  <script src="jQ/jquery-3.3.1.min.js"></script>
+  <script src="../jQ/jquery-3.3.1.min.js"></script>
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>花田香ポートフォリオサイト</title>
 </head>
@@ -250,9 +273,47 @@
               「swiper-container>swiper-wrapper>swiper-slide」
               この3つの中に囲いは作らない事。作動しなくなるぞ。 -->
               <div class="pfslide_inner clearfix">
+                <h3 class="phh3">このサイトについて</h3>
+                <div class="pfLeft clearfix">
+                    <img src="../images/portfolio.png" alt="kuyou">
+                </div>
+                <div class="pfRight">
+                  <!-- h3.phh3+dl.pfdl*4>(dt+dd) -->
+                  <dl class="pfdl">
+                    <dt>実装機能</dt>
+                    <dd>fixedメニュー(HTML/CSS)</dd>
+                    <dd>スクロールアップで出現するfixedメニュー(jQuery)</dd>
+                    <dd>スクロールダウンで消滅するfixedメニュー(jQuery)</dd>
+                    <dd>ハンバーガーメニュー(jQuery)</dd>
+                    <dd>スクロールでのフェードイン(jQuery)</dd>
+                    <dd>プラグイン「swiper」を用いたスライダー(jQuery)</dd>
+                  </dl>
+                  <dl class="pfdl">
+                    <dt>制作期間</dt>
+                    <dd>HTML/CSSコーディング(レスポンシブ含む): 3日(18h)</dd>
+                    <dd>jQueryコーディング: 3日(18h)</dd>
+                    <dd>内容の手直し: 1日(4h)</dd>
+                    <dd>計:10日(40h)</dd>
+                  </dl>
+                  <div class="pfLinks">
+                    <a href="https://drive.google.com/open?id=1qkwbu5IW1wtYf3mHBx9CXPQfeqiU_m5M" class="pfLink toGrive"><i class="fab fa-google-drive"></i><p>スクリーンショットを見る</p></a>
+                    <a href="https://github.com/kaoru-drosera/portfolioSite" class="pfLink toGithub"><i class="fab fa-github"></i><p>コードを見る</p></a>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide clearfix">
+              <!-- ↑「swiperのボタンをスライドから外に出したい！」
+              というときには、swiper-slideの中にもう一つdivで囲いを作り、
+              widthを100%以下にしてmargin:auto;で中央寄せすること。
+              「swiper-container>swiper-wrapper>swiper-slide」
+              この3つの中に囲いは作らない事。作動しなくなるぞ。 -->
+              <div class="pfslide_inner clearfix">
                 <h3 class="phh3">ランディングページ<br>「omron お悩み別歯ブラシ診断」</h3>
                 <div class="pfLeft clearfix">
-                    <img src="images/omron_pc-forpf2.jpg" alt="kuyou">
+                    <img src="../images/omron_pc-forpf2.jpg" alt="kuyou">
                 </div>
                 <div class="pfRight">
                   <!-- h3.phh3+dl.pfdl*4>(dt+dd) -->
@@ -287,7 +348,7 @@
               <div class="pfslide_inner clearfix">
                 <h3 class="phh3">ランディングページ<br>「お部屋『モチコム』賃貸サービス　MOCHICOM」</h3>
                 <div class="pfLeft clearfix">
-                    <img src="images/mckmpc-forpf2.jpg" alt="kuyou">
+                    <img src="../images/mckmpc-forpf2.jpg" alt="kuyou">
                 </div>
                 <div class="pfRight">
                   <!-- h3.phh3+dl.pfdl*4>(dt+dd) -->
@@ -320,7 +381,7 @@
               <div class="pfslide_inner clearfix">
                 <h3 class="phh3">ランディングページ<br>「0円スクール」</h3>
                 <div class="pfLeft clearfix">
-                    <img src="images/0yenForpf.jpg" alt="kuyou">
+                    <img src="../images/0yenForpf.jpg" alt="kuyou">
                 </div>
                 <div class="pfRight">
                   <!-- h3.phh3+dl.pfdl*4>(dt+dd) -->
@@ -354,7 +415,7 @@
               <div class="pfslide_inner clearfix">
                 <h3 class="phh3">ランディングページ<br>「interview maker」</h3>
                 <div class="pfLeft clearfix">
-                    <img src="images/karipc-forpf2.jpg" alt="kuyou">
+                    <img src="../images/karipc-forpf2.jpg" alt="kuyou">
                 </div>
                 <div class="pfRight">
                   <!-- h3.phh3+dl.pfdl*4>(dt+dd) -->
@@ -456,8 +517,29 @@
         <p>contact</p>
       </div>
       <div class="C_FormWrap JQ Q2">
-        <form action="" class="C_Form clearfix">
-          <label for="mes"><textarea name="message" id="mes" cols="30" rows="7" placeholder="コメントは現在休止中です"></textarea></label>
+        <form action="" class="C_Form clearfix" method="post">
+          <label for="name">
+            <input type="text" id="name" name="name" placeholder="名前">
+          </label>
+          <?php if(isset($error['name']) && $error['name'] == 'blank'): ?>
+            <p class="error" style="color: red; text-align: left; margin-top: 5px;">*名前を入力してください。</p>
+          <?php endif; ?><!--  .error -->
+
+          <label for="mail">
+            <input type="text" id="mail" name="mail" placeholder="メールアドレス">
+          </label>
+          <?php if(isset($error['mail']) && $error['mail'] == 'blank'): ?>
+            <p class="error" style="color: red; text-align: left; margin-top: 5px;">*メールアドレスを入力してください。</p>
+          <?php endif; ?><!--  .error -->
+
+          <label for="mes">
+            <textarea name="message" id="mes" cols="30" rows="7" placeholder="コメントは現在休止中です"></textarea>
+          </label>
+          <?php if(isset($error['message']) && $error['message'] == 'blank'): ?>
+            <p class="error" style="color: red; text-align: left; margin-top: 5px;">*メッセージを入力してください。</p>
+          <?php endif; ?><!--  .error -->
+
+          <label for="retry"><button type="reset" id="retry" name="retry">やり直す</button></label>
           <label for="subm"><input type="submit" id="subm" name="submit" value="送信"></label>
         </form>
       </div>
@@ -474,7 +556,7 @@
     </div>
   </section>
 
-<script src="jQ/swiper.js"></script>
-<script src="jQ/kaoruPf+Q.js"></script>
+<script src="../jQ/swiper.js"></script>
+<script src="../jQ/kaoruPf+Q.js"></script>
 </body>
 </html>
