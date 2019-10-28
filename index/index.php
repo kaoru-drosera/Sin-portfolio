@@ -1,6 +1,6 @@
 <?php
   ini_set('display_errors',1);
-  error_reporting(E_ALL);
+  error_reporting(E_ALL & ~E_NOTICE);
   session_start();
   require('../dbConnect.php');
   if(!empty($_POST)){
@@ -14,9 +14,9 @@
     if($_POST['message'] == ''){
       $error['message'] = 'blank';
     }
-    if(!empty($error)){
+    if(empty($error)){
       $_SESSION['join'] = $_POST;
-      header('location:check.php');
+      header('Location:check.php');
       exit();
     }
   }

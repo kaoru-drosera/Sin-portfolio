@@ -181,13 +181,14 @@ a{
   display: block;
 }
 .fmenuRight a{
-  padding: 22px 0;
+  width: 18%;
+  padding: 23px 0;
   display: block;
+  transition: .5s;
 }
 .fmenuRight a:hover{
   background-color: #fff;
   color: #13043E;
-  transition: .5s;
 }
 .fRburg{
   display: none;
