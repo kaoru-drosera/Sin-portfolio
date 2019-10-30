@@ -181,8 +181,7 @@ a{
   display: block;
 }
 .fmenuRight a{
-  width: 18%;
-  padding: 23px 0;
+  padding: 23px 1px;
   display: block;
   transition: .5s;
 }

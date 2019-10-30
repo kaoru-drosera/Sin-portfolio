@@ -3,11 +3,26 @@
   error_reporting(E_ALL & ~E_NOTICE);
   session_start();
   // require('dbconnect.php');
-  if(empty($_POST)){
+  if(!isset($_POST)){
     header('Location:index.php');
     exit();
   }
-  $_SESSION = $_POST;
+  // $_SESSION = $_POST;
+  if(!empty($_POST)){
+    $statement=$db->prepare('INSERT INTO comments SET
+    name = ?,
+    mail = ?,
+    message = ?,
+    created = NOW()
+    ');
+    echo $ret=$statement->execute(array(
+    $_SESSION['join']['name'],
+    $_SESSION['join']['mail'],
+    $_SESSION['join']['message']
+    ));
+    unset($_SESSION['join']);
+    header('Location: Receive.php');
+  }
 
   function h($value){
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
@@ -61,43 +76,15 @@
   <section id="form" class="contactForm clearfix">
     <div class="container">
       <div class="h2wrap JQ Q2">
-        <h2>お問い合わせ</h2>
-        <p>contact</p>
+        <h2>お問い合わせ内容確認</h2>
+        <p>Confirmation of contact</p>
       </div>
       <div class="C_FormWrap JQ Q2 clearfix">
         <form action="" class="C_Form clearfix">
-          <p class="post">名前：<?php
-          if(!empty($_POST['name'])){
-            $name = h($_POST['name']);
-            if($name == ""){
-              echo "名前をを入力してください";
-            } else {
-              echo $name;
-            }
-          }
-
-            ?></p>
-          <p class="post">メールアドレス：<?php
-          if(!empty($_POST['mail'])){
-            $mail = h($_POST['mail']);
-            if($mail == ""){
-              echo "メールアドレスをを入力してください";
-            } else {
-              echo $mail;
-            }
-          }
-
-            ?></p>
-          <p class="post">コメント：<?php
-          if(!empty($_POST['message'])){
-            $message = h($_POST['message']);
-            if($message == ""){
-              echo "コメントを入力してください";
-            } else {
-              echo $message;
-            }
-          }
-            ?></p>
+          <p class="post">名前：<?php echo h($_SESSION['join']['name']); ?></p>
+          <p class="post">メールアドレス：<?php echo h($_SESSION['join']['mail']); ?></p>
+          <p class="post">コメント：<?php echo h($_SESSION['join']['message']); ?></p>
+          <label for=""><a class="retry" href="index.php">やり直す</a></label>
           <label for="subm"><input type="submit" id="subm" name="submit" value="送信"></label>
         </form>
       </div>

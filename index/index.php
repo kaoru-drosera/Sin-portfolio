@@ -4,20 +4,19 @@
   session_start();
   require('../dbConnect.php');
   if(!empty($_POST)){
-    // エラー項目
-    if($_POST['name'] == ''){
-      $error['name'] = 'blank';
+    if($_POST['name']==''){
+      $error['name']='blank';
     }
-    if($_POST['mail'] == ''){
-      $error['mail'] = 'blank';
+    if($_POST['mail']==''){
+      $error['mail']='blank';
     }
-    if($_POST['message'] == ''){
-      $error['message'] = 'blank';
+    if($_POST['message']==''){
+      $error['message']='blank';
     }
     if(empty($error)){
-      $_SESSION['join'] = $_POST;
-      header('Location:check.php');
-      exit();
+    $_SESSION['join']=$_POST;
+    header('Location:check.php');
+    exit();
     }
   }
  ?>

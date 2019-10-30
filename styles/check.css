@@ -158,7 +158,8 @@ a{
 }
 .C_Form textarea,
 .C_Form input,
-.C_Form button{
+.C_Form button,
+.C_Form .retry{
   width: 100%;
   float: left;
   border: 1px solid #fff;
@@ -169,7 +170,7 @@ a{
   padding: 10px 18px;
   margin: 20px 0 0;
   font-family: Georgia,"游明朝","Yu Mincho",YuMincho,"Hiragino Mincho ProN",HGS明朝E,メイリオ,Meiryo,serif;
-
+  line-height: 25px;
 }
 .C_Form textarea:focus,
 .C_Form input:focus{
@@ -180,17 +181,22 @@ a{
   color: #fff;
 }
 .C_Form input[type="submit"],
-.C_Form button[type="reset"]{
+.C_Form button[type="reset"],
+.C_Form .retry{
   padding: 10px 0;
   margin: 20px 0 0;
   font-size: 22px;
-  background-color: rgba(78, 102, 128, 0.4);
-  color: #fff;
   cursor: pointer;
   transition: .5s;
   font-family: Georgia,"游明朝","Yu Mincho",YuMincho,"Hiragino Mincho ProN",HGS明朝E,メイリオ,Meiryo,serif;
 }
-.C_Form button[type="reset"]{
+.C_Form input[type="submit"],
+.C_Form button[type="reset"],
+.C_Form .retry{
+  background-color: rgba(78, 102, 128, 0.4);
+  color: #fff;
+}
+.C_Form .retry{
   background-color: rgba(128, 87, 78, 0.4);
   transition: .5s;
 }
@@ -198,6 +204,10 @@ a{
 .C_Form button[type="reset"]:hover{
   background-color: rgba(255, 255, 255, 1);
   color: rgba(78, 102, 128, 1);
+}
+.C_Form .retry:hover{
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(128, 87, 78, 0.4);
 }
 
 /* フォームここまで */
