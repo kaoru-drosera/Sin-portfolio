@@ -3,6 +3,9 @@
   error_reporting(E_ALL & ~E_NOTICE);
   session_start();
   require('../dbConnect.php');
+  function h($value){
+    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
+  }
   if(!empty($_POST)){
     if($_POST['name']==''){
       $error['name']='blank';
@@ -15,7 +18,7 @@
     }
     if(empty($error)){
     $_SESSION['join']=$_POST;
-    header('Location:check.php');
+    header("Location: check.php");
     exit();
     }
   }
@@ -518,21 +521,21 @@
       <div class="C_FormWrap JQ Q2">
         <form action="" class="C_Form clearfix" method="post">
           <label for="name">
-            <input type="text" id="name" name="name" placeholder="名前">
+            <input type="text" id="name" name="name" value="<?php echo h($_SESSION['join']['name']) ?>" placeholder="名前">
           </label>
           <?php if(isset($error['name']) && $error['name'] == 'blank'): ?>
             <p class="error" style="color: red; text-align: left; margin-top: 5px;">*名前を入力してください。</p>
           <?php endif; ?><!--  .error -->
 
           <label for="mail">
-            <input type="text" id="mail" name="mail" placeholder="メールアドレス">
+            <input type="text" id="mail" name="mail" value="<?php echo h($_SESSION['join']['mail']) ?>" placeholder="メールアドレス">
           </label>
           <?php if(isset($error['mail']) && $error['mail'] == 'blank'): ?>
             <p class="error" style="color: red; text-align: left; margin-top: 5px;">*メールアドレスを入力してください。</p>
           <?php endif; ?><!--  .error -->
 
           <label for="mes">
-            <textarea name="message" id="mes" cols="30" rows="7" placeholder="コメントは現在休止中です"></textarea>
+            <textarea name="message" id="mes" cols="30" rows="7" placeholder="コメントは現在休止中です"><?php echo h($_SESSION['join']['message']) ?></textarea>
           </label>
           <?php if(isset($error['message']) && $error['message'] == 'blank'): ?>
             <p class="error" style="color: red; text-align: left; margin-top: 5px;">*メッセージを入力してください。</p>

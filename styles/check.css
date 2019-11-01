@@ -42,7 +42,6 @@ a{
   text-align: center;
   height: 100%;
 
-
   /*　↑ containerには、
   margin横のautoと
   text-alignのcenterだけは
@@ -149,12 +148,19 @@ a{
 .contactForm .h2wrap{
   color: #fff;
 }
-.C_Form{
+.contactForm .C_FormWrap{
+  height: auto;
+}
+.C_Form,
+.C_Comp{
   background-color: #13043E;
   padding: 30px 0 0;
   max-width: 400px;
   margin: 30px auto 0;
   height: 100%;
+}
+.C_Comp{
+  min-height: 250px;
 }
 .C_Form textarea,
 .C_Form input,
@@ -182,13 +188,17 @@ a{
 }
 .C_Form input[type="submit"],
 .C_Form button[type="reset"],
-.C_Form .retry{
+.C_Form .retry,
+.C_Form .quit{
   padding: 10px 0;
   margin: 20px 0 0;
   font-size: 22px;
   cursor: pointer;
   transition: .5s;
   font-family: Georgia,"游明朝","Yu Mincho",YuMincho,"Hiragino Mincho ProN",HGS明朝E,メイリオ,Meiryo,serif;
+}
+.C_Form a{
+  color: #fff;
 }
 .C_Form input[type="submit"],
 .C_Form button[type="reset"],
@@ -201,7 +211,8 @@ a{
   transition: .5s;
 }
 .C_Form input[type="submit"]:hover,
-.C_Form button[type="reset"]:hover{
+.C_Form button[type="reset"]:hover,
+.quit{
   background-color: rgba(255, 255, 255, 1);
   color: rgba(78, 102, 128, 1);
 }
